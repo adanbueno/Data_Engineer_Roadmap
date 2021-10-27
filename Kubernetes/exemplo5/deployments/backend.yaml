@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+    type: backend
+spec:
+  template:
+    metadata:
+      name: backend
+      labels:
+        app: backend
+        type: backend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+  selector:
+    matchLabels:
+      type: backend
+  replicas: 2
